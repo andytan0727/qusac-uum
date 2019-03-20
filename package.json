@@ -42,7 +42,7 @@
     "build": "run-p build:**",
     "develop": "yarn clean && gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\""
+    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\""
   },
   "devDependencies": {
     "http-proxy-middleware": "^0.19.1",
