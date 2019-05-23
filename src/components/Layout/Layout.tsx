@@ -6,8 +6,9 @@ import "../all.sass";
 import "../global.scss";
 import useSiteMetadata from "../StaticQueries/SiteMetadata";
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
   const { title, description } = useSiteMetadata();
+
   return (
     <div>
       <Helmet>
@@ -46,7 +47,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <NavBar />
-      <div>{children}</div>
+      {children}
       <Footer />
     </div>
   );
