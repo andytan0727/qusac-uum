@@ -1,13 +1,13 @@
-@import "../colors";
+.navbarBeforeScroll {
+  background-color: lighten(black, 15%) !important;
+}
 
-.cusNavbar .cusNavbarMenu {
-  box-shadow: none !important;
+.navbarScroll {
+  background-color: rgba(white, 0.95) !important;
+  color: black !important;
+  position: relative;
 
-  .cusNavbarItem {
-    color: $primary;
-  }
-
-  .cusnavbarBrand .cusnavbarItem.logo {
-    padding: 0 1rem;
+  a {
+    color: black !important;
   }
 }

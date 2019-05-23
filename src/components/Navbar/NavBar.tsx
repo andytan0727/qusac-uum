@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
 
+import * as styles from "./styles.module.scss";
+
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [scrolling, setScrolling] = useState(false);
@@ -38,13 +40,13 @@ const NavBar = () => {
       ref={navbarRef}
       className={classNames("navbar navbar-expand-lg sticky-top shadow", {
         "navbar-dark": !scrolling,
-        navbarBeforeScroll: !scrolling,
-        navbarScroll: scrolling,
+        [styles.navbarBeforeScroll]: !scrolling,
+        [styles.navbarScroll]: scrolling,
       })}
     >
       <div className="container">
-        <Link to="/">
-          <a className="navbar-brand">Qusac</a>
+        <Link className="navbar-brand" to="/">
+          Qusac
         </Link>
         <button
           className="navbar-toggler navbar-toggler-right"
@@ -62,37 +64,36 @@ const NavBar = () => {
           className={classNames("navbar-collapse", {
             collapse: !openMenu,
           })}
-          //  className="collapse navbar-collapse" id="navbarResponsive">
         >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link to="/">
-                <a className="nav-link">Home</a>
+              <Link className="nav-link" to="/">
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/news">
-                <a className="nav-item nav-link">News</a>
+              <Link className="nav-link" to="/news">
+                News
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/program">
-                <a className="nav-link">Program</a>
+              <Link className="nav-link" to="/program">
+                Program
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/solutions">
-                <a className="nav-link">Solutions</a>
+              <Link className="nav-link" to="/solutions">
+                Solutions
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about">
-                <a className="nav-link">About</a>
+              <Link className="nav-link" to="/about">
+                About
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact-us">
-                <a className="nav-link">Contact Us</a>
+              <Link className="nav-link" to="/contact-us">
+                Contact Us
               </Link>
             </li>
           </ul>
