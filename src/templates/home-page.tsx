@@ -3,21 +3,28 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
 
-import btnStyles from "../styles/btn.module.scss";
+export interface IHomePageFrontMatter {
+  image: any;
+  title: string;
+  heading: string;
+  subheading: string;
+}
+
+export interface IData {
+  data: {
+    markdownRemark: {
+      frontmatter: IHomePageFrontMatter;
+    };
+  };
+}
 
 export const HomePageTemplate = ({
   image,
   title,
   heading,
   subheading,
-  mainpitch,
-  description,
-  intro,
-  main,
-}) => (
+}: IHomePageFrontMatter) => (
   <div>
     <div
       className="full-width-image margin-top-0"
@@ -76,14 +83,9 @@ HomePageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 };
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data }: IData) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
@@ -93,9 +95,6 @@ const HomePage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );
@@ -108,8 +107,6 @@ HomePage.propTypes = {
     }),
   }),
 };
-
-export default HomePage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -125,26 +122,9 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
 `;
+
+export default HomePage;
