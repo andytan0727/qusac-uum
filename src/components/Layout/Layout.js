@@ -2,7 +2,8 @@ import React from "react";
 import Helmet from "react-helmet";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
-import '../all.sass';
+import "../all.sass";
+import "../global.scss";
 import useSiteMetadata from "../StaticQueries/SiteMetadata";
 
 const TemplateWrapper = ({ children }) => {
