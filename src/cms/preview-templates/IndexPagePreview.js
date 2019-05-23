@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { IndexPageTemplate } from "../../templates/index-page";
+import { HomePageTemplate } from "../../templates/home-page";
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const HomePagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(["data", "intro", "blurbs"]);
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : [];
 
   return (
-    <IndexPageTemplate
+    <HomePageTemplate
       image={entry.getIn(["data", "image"])}
       title={entry.getIn(["data", "title"])}
       heading={entry.getIn(["data", "heading"])}
@@ -34,11 +34,11 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   );
 };
 
-IndexPagePreview.propTypes = {
+HomePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 };
 
-export default IndexPagePreview;
+export default HomePagePreview;
