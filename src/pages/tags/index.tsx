@@ -4,6 +4,24 @@ import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
 
+import tagStyles from "../../styles/tags.module.scss";
+
+export interface ITagsAllMarkdownRemark {
+  group: Array<{
+    fieldValue: string;
+    totalCount: number;
+  }>;
+}
+
+export interface IData {
+  data: {
+    site: {
+      siteMetadata: { title: string };
+    };
+    allMarkdownRemark: ITagsAllMarkdownRemark;
+  };
+}
+
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
@@ -11,7 +29,7 @@ const TagsPage = ({
       siteMetadata: { title },
     },
   },
-}) => (
+}: IData) => (
   <Layout>
     <section className="section">
       <Helmet title={`Tags | ${title}`} />
@@ -22,7 +40,7 @@ const TagsPage = ({
             style={{ marginBottom: "6rem" }}
           >
             <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
+            <ul className={tagStyles.taglist}>
               {group.map(tag => (
                 <li key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
@@ -37,8 +55,6 @@ const TagsPage = ({
     </section>
   </Layout>
 );
-
-export default TagsPage;
 
 export const tagPageQuery = graphql`
   query TagsQuery {
@@ -55,3 +71,5 @@ export const tagPageQuery = graphql`
     }
   }
 `;
+
+export default TagsPage;
