@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-const useBlogRollQuery = () => {
+const useNewsRollQuery = () => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query BlogRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "news-post" } } }
         ) {
           edges {
             node {
@@ -29,4 +29,4 @@ const useBlogRollQuery = () => {
   return allMarkdownRemark;
 };
 
-export default useBlogRollQuery;
+export default useNewsRollQuery;

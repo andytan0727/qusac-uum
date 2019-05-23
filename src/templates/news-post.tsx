@@ -1,19 +1,45 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
-export const BlogPostTemplate = ({
+import tagStyles from "../styles/tags.module.scss";
+
+export interface INewsPostFrontmatter {
+  date?: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+export interface INewsPostMarkdownRemark {
+  id: string;
+  html: string;
+  frontmatter: INewsPostFrontmatter;
+}
+
+export interface IData {
+  data: {
+    markdownRemark: INewsPostMarkdownRemark;
+  };
+}
+
+export interface NewsPostTemplateProps extends INewsPostFrontmatter {
+  content: React.ReactNode;
+  contentComponent: Function;
+  helmet: object;
+}
+
+export const NewsPostTemplate = ({
   content,
   contentComponent,
   description,
   tags,
   title,
   helmet,
-}) => {
+}: NewsPostTemplateProps) => {
   const PostContent = contentComponent || Content;
 
   return (
@@ -30,7 +56,7 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
-                <ul className="taglist">
+                <ul className={tagStyles.taglist}>
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -46,20 +72,12 @@ export const BlogPostTemplate = ({
   );
 };
 
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-};
-
-const BlogPost = ({ data }) => {
+const NewsPost = ({ data }: IData) => {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <BlogPostTemplate
+      <NewsPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -79,13 +97,7 @@ const BlogPost = ({ data }) => {
   );
 };
 
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-};
-
-export default BlogPost;
+export default NewsPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {

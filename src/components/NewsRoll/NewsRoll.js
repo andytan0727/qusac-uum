@@ -1,16 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {
-  Link,
-  //  graphql, StaticQuery
-} from "gatsby";
-import { useBlogRollQuery } from "../StaticQueries/BlogRollQuery";
+import { Link } from "gatsby";
+import { useNewsRollQuery } from "../StaticQueries/NewsRollQuery";
 
 import styles from "./styles.module.scss";
 
-const BlogRoll = () => {
-  const { edges: posts } = useBlogRollQuery();
+const NewsRoll = () => {
+  const { edges: posts } = useNewsRollQuery();
 
   return (
     <div className="columns is-multiline">
@@ -48,7 +45,7 @@ const BlogRoll = () => {
   );
 };
 
-BlogRoll.propTypes = {
+NewsRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -56,4 +53,4 @@ BlogRoll.propTypes = {
   }),
 };
 
-export default BlogRoll;
+export default NewsRoll;
