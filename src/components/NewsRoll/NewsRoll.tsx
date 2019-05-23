@@ -1,13 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Link } from "gatsby";
 import { useNewsRollQuery } from "../StaticQueries/NewsRollQuery";
 
 import styles from "./styles.module.scss";
 
+export interface IData {
+  edges: Array<{
+    node: {
+      id: string;
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        title: string;
+        date: string;
+      };
+      excerpt: string;
+    };
+  }>;
+}
+
 const NewsRoll = () => {
-  const { edges: posts } = useNewsRollQuery();
+  const { edges: posts }: IData = useNewsRollQuery();
 
   return (
     <div className="columns is-multiline">
@@ -43,14 +58,6 @@ const NewsRoll = () => {
         ))}
     </div>
   );
-};
-
-NewsRoll.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
 };
 
 export default NewsRoll;
