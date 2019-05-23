@@ -1,0 +1,13 @@
+@import "../colors";
+
+.cusNavbar .cusNavbarMenu {
+  box-shadow: none !important;
+
+  .cusNavbarItem {
+    color: $primary;
+  }
+
+  .cusnavbarBrand .cusnavbarItem.logo {
+    padding: 0 1rem;
+  }
+}
