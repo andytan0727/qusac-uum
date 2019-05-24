@@ -18,7 +18,7 @@ const NavBar = () => {
       <Navbar
         className={classNames(styles.customNav, "shadow")}
         color="light"
-        expand="md"
+        expand="lg"
         fixed="top"
       >
         <Link className="navbar-brand" to="/">
