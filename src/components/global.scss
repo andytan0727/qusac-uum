@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lora:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
-@import "~bootstrap/scss/bootstrap";
 
 body {
-  font-size: 20px;
-  color: #212529;
   font-family: "Lora", sans-serif, serif;
 }
 
@@ -23,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: bold;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -31,67 +28,11 @@ a {
   color: #212529;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  text-decoration: none !important;
 
   &:focus,
   &:hover {
     color: #0085a1;
-  }
-}
-
-.navbar {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-  /* Force Hardware Acceleration in WebKit */
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  .navbar-brand {
-    font-weight: 800;
-  }
-
-  .navbar-toggler {
-    font-size: 12px;
-    font-weight: 800;
-    padding: 13px;
-    text-transform: uppercase;
-  }
-
-  .navbar-nav > li.nav-item > a {
-    color: #fff;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  @media only screen and (min-width: 992px) {
-    border-bottom: 1px solid transparent;
-    background: transparent;
-
-    .navbar-brand {
-      padding: 10px 20px;
-
-      &:focus,
-      &:hover {
-        color: none;
-      }
-    }
-
-    .navbar-nav > li.nav-item > a {
-      padding: 10px 20px;
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-
-      &:focus,
-      &:hover {
-        color: rgba(255, 255, 255, 0.8);
-      }
-    }
   }
 }
 
@@ -144,105 +85,6 @@ img::-moz-selection {
   background: transparent;
 }
 
-header.masthead {
-  margin-bottom: 50px;
-  background: no-repeat center center;
-  background-color: #868e96;
-  background-attachment: scroll;
-  position: relative;
-  background-size: cover;
-}
-
-header.masthead .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #212529;
-  opacity: 0.5;
-}
-
-header.masthead .page-heading,
-header.masthead .post-heading,
-header.masthead .site-heading {
-  padding: 200px 0 150px;
-  color: white;
-}
-
-@media only screen and (min-width: 768px) {
-  header.masthead .page-heading,
-  header.masthead .post-heading,
-  header.masthead .site-heading {
-    padding: 200px 0;
-  }
-}
-
-header.masthead .page-heading,
-header.masthead .site-heading {
-  text-align: center;
-}
-
-header.masthead .page-heading h1,
-header.masthead .site-heading h1 {
-  font-size: 50px;
-  margin-top: 0;
-}
-
-header.masthead .page-heading .subheading,
-header.masthead .site-heading .subheading {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1.1;
-  display: block;
-  margin: 10px 0 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-@media only screen and (min-width: 768px) {
-  header.masthead .page-heading h1,
-  header.masthead .site-heading h1 {
-    font-size: 80px;
-  }
-}
-
-header.masthead .post-heading h1 {
-  font-size: 35px;
-}
-
-header.masthead .post-heading .meta,
-header.masthead .post-heading .subheading {
-  line-height: 1.1;
-  display: block;
-}
-
-header.masthead .post-heading .subheading {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 10px 0 30px;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-header.masthead .post-heading .meta {
-  font-size: 20px;
-  font-weight: 300;
-  font-style: italic;
-  font-family: "Lora", "Times New Roman", serif;
-}
-
-header.masthead .post-heading .meta a {
-  color: #fff;
-}
-
-@media only screen and (min-width: 768px) {
-  header.masthead .post-heading h1 {
-    font-size: 55px;
-  }
-  header.masthead .post-heading .subheading {
-    font-size: 30px;
-  }
-}
-
 .form-group {
   margin-bottom: 25px;
 
@@ -266,25 +108,10 @@ header.masthead .post-heading .meta a {
   }
 }
 
-footer {
-  padding: 50px 0 65px;
-
-  .list-inline {
-    margin: 0;
-    padding: 0;
-  }
-
-  .copyright {
-    font-size: 14px;
-    margin-bottom: 0;
-    text-align: center;
-  }
-}
-
 .btn {
   font-size: 14px;
   font-weight: 800;
-  padding: 15px 25px;
+  padding: 0.8rem 1.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 0;
@@ -302,9 +129,4 @@ footer {
     background-color: #00657b !important;
     border-color: #00657b !important;
   }
-}
-
-.btn-lg {
-  font-size: 16px;
-  padding: 25px 35px;
 }

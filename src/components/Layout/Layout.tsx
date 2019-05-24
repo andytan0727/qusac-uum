@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../global.scss";
 import useSiteMetadata from "../StaticQueries/SiteMetadata";
 
 const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
