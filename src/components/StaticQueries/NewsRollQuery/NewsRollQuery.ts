@@ -1,6 +1,22 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-const useNewsRollQuery = () => {
+export interface INewsRollQueryData {
+  edges: Array<{
+    node: {
+      id: string;
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        title: string;
+        date: string;
+      };
+      excerpt: string;
+    };
+  }>;
+}
+
+const useNewsRollQuery = (): INewsRollQueryData => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query BlogRollQuery {
