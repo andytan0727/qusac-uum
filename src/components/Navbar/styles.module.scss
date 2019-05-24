@@ -1,15 +1,41 @@
-.customNav {
+%customNav {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   a {
     font-weight: bold;
-    color: black !important;
     text-transform: uppercase;
     padding: 0.8rem 1.2rem !important;
 
     &:focus,
     &:hover {
-      color: rgba(white, 0.7) !important;
+      color: rgba(white, 0.5) !important;
     }
+  }
+}
+
+.navbarBeforeScroll {
+  @extend %customNav;
+
+  background: rgb(149, 153, 167);
+  background: linear-gradient(
+    86deg,
+    rgba(149, 153, 167, 1) 0%,
+    rgba(210, 211, 219, 1) 57%,
+    rgba(215, 217, 232, 1) 82%,
+    rgba(215, 217, 232, 1) 100%
+  );
+
+  a {
+    color: lighten(black, 35%);
+  }
+}
+
+.navbarDuringScroll {
+  @extend %customNav;
+
+  background-color: rgba(white, 0.9);
+
+  a {
+    color: black;
   }
 }

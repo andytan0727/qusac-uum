@@ -37,15 +37,15 @@ export const HomePageTemplate = ({
     <React.Fragment>
       <header>
         <Container
-          className="d-flex flex-column justify-content-center align-items-center mt-n5 vh-100"
+          className="d-flex flex-column justify-content-center align-items-center"
           style={{
-            height: "",
+            height: "80vh",
             backgroundImage: `url(${
               !!image.childImageSharp ? image.childImageSharp.fluid.src : image
             })`,
             backgroundSize: "cover",
-            backgroundPosition: `center`,
-            backgroundAttachment: `fixed`,
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
             backgroundClip: "cover",
           }}
           fluid

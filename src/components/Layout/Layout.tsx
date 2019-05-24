@@ -47,13 +47,7 @@ const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <NavBar />
-      <div
-        style={{
-          marginTop: "5rem",
-        }}
-      >
-        {children}
-      </div>
+      <div>{children}</div>
       <Footer />
     </div>
   );

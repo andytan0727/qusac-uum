@@ -7,7 +7,7 @@ const NewsIndexPage = () => {
   return (
     <Layout>
       <header
-        className="container-fluid mt-n3 d-flex justify-content-center align-items-center"
+        className="container-fluid d-flex justify-content-center align-items-center"
         style={{
           height: "40vh",
           backgroundColor: "rgba(200,200,200,.9)",
