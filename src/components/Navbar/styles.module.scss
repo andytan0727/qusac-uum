@@ -1,13 +1,13 @@
-.navbarBeforeScroll {
-  background-color: lighten(black, 15%) !important;
-}
-
-.navbarScroll {
-  background-color: rgba(white, 0.95) !important;
-  color: black !important;
-  position: relative;
-
+.customNav {
   a {
+    font-weight: bold;
     color: black !important;
+    text-transform: uppercase;
+    padding: 0.8rem 1.2rem !important;
+
+    &:focus,
+    &:hover {
+      color: rgba(white, 0.7) !important;
+    }
   }
 }

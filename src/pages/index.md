@@ -1,7 +1,7 @@
 ---
 templateKey: "home-page"
-title: "Great coffee with a conscience"
-image: /img/nightsky.webp
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+title: "ASEAN MATHEMATICS COMPETITION"
+image: /img/plush-design-studio-515757-unsplash.jpg
+heading: ASEAN MATHEMATICS COMPETITION
+subheading: An event by UUM QUSAC
 ---
