@@ -2,8 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
-import "../all.sass";
-import "../global.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import useSiteMetadata from "../StaticQueries/SiteMetadata";
 
 const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -47,7 +46,13 @@ const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <NavBar />
-      {children}
+      <div
+        style={{
+          marginTop: "5rem",
+        }}
+      >
+        {children}
+      </div>
       <Footer />
     </div>
   );
