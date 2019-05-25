@@ -5,8 +5,6 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
-import tagStyles from "../styles/tags.module.scss";
-
 export interface INewsPostFrontmatter {
   date?: string;
   title: string;
@@ -29,7 +27,7 @@ export interface IData {
 export interface NewsPostTemplateProps extends INewsPostFrontmatter {
   content: React.ReactNode;
   contentComponent: Function;
-  helmet: object;
+  helmet: React.ReactNode;
 }
 
 export const NewsPostTemplate = ({
@@ -43,32 +41,30 @@ export const NewsPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <React.Fragment>
       {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className={tagStyles.taglist}>
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+      <div className="container mt-5">
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <PostContent content={content} className="news-post" />
+        {tags && tags.length ? (
+          <div style={{ marginTop: `3rem` }}>
+            <h4>Tags</h4>
+            <ul className="d-flex justify-content-start align-items-center list-unstyled mt-4">
+              {tags.map(tag => (
+                <li key={tag + `tag`} className="ml-3">
+                  <Link to={`/tags/${kebabCase(tag)}/`}>
+                    <span className="badge badge-pill badge-info px-3 py-2 font-weight-bold">
+                      {tag}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ) : null}
       </div>
-    </section>
+    </React.Fragment>
   );
 };
 
@@ -97,8 +93,6 @@ const NewsPost = ({ data }: IData) => {
   );
 };
 
-export default NewsPost;
-
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
@@ -113,3 +107,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default NewsPost;
