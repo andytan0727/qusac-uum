@@ -3,8 +3,6 @@ import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 
-import tagStyles from "../styles/tags.module.scss";
-
 export interface ITagsTemplateAllMarkdownRemark {
   totalCount: number;
   edges: Array<{
@@ -37,9 +35,9 @@ export interface TagsRouteProps extends IData {
 const TagRoute = (props: TagsRouteProps) => {
   const posts = props.data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
-    <li key={post.node.fields.slug}>
+    <li key={post.node.fields.slug} className="mb-3">
       <Link to={post.node.fields.slug}>
-        <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
+        <h4 className="text-dark">{post.node.frontmatter.title}</h4>
       </Link>
     </li>
   ));
@@ -52,23 +50,18 @@ const TagRoute = (props: TagsRouteProps) => {
 
   return (
     <Layout>
-      <section className="section">
-        <Helmet title={`${tag} | ${title}`} />
-        <div className="container content">
-          <div className="columns">
-            <div
-              className="column is-10 is-offset-1"
-              style={{ marginBottom: "6rem" }}
-            >
-              <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-              <ul className={tagStyles.taglist}>{postLinks}</ul>
-              <p>
-                <Link to="/tags/">Browse all tags</Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Helmet title={`${tag} | ${title}`} />
+      <div className="container mt-5">
+        <main style={{ marginBottom: "6rem" }}>
+          <h1>{tagHeader}</h1>
+          <ul className="d-flex flex-column justify-content-center mt-5">
+            {postLinks}
+          </ul>
+          <p>
+            <Link to="/tags/">Browse all tags</Link>
+          </p>
+        </main>
+      </div>
     </Layout>
   );
 };
