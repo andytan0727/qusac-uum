@@ -16,7 +16,7 @@ const NavBar = () => {
 
   const handleScroll = () => {
     const offsetTop = window.pageYOffset;
-    if (offsetTop > 500) {
+    if (offsetTop > 300) {
       setScrolling(true);
     } else {
       setScrolling(false);
@@ -33,63 +33,61 @@ const NavBar = () => {
 
   return (
     <React.Fragment>
-      <div>
-        <Navbar
-          className={classNames("shadow", {
-            [styles.navbarBeforeScroll]: !scrolling,
-            [styles.navbarDuringScroll]: scrolling,
-          })}
-          expand="lg"
-          fixed={scrolling ? "top" : ""}
-        >
-          <Link className="navbar-brand" to="/">
-            <span
-              style={{
-                color: "black",
-              }}
-            >
-              Qusac
-            </span>
-          </Link>
-          <NavbarToggler onClick={toggle}>
-            <FaBars />
-          </NavbarToggler>
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Link className="nav-link" to="/">
-                  Home
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/news">
-                  News
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/program">
-                  Program
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/solution">
-                  Solution
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/about">
-                  About
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="nav-link" to="/contact-us">
-                  Contact Us
-                </Link>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+      <Navbar
+        className={classNames("shadow", {
+          [styles.navbarBeforeScroll]: !scrolling,
+          [styles.navbarDuringScroll]: scrolling,
+        })}
+        expand="lg"
+        sticky={scrolling ? "top" : ""}
+      >
+        <Link className="navbar-brand" to="/">
+          <span
+            style={{
+              color: "black",
+            }}
+          >
+            Qusac
+          </span>
+        </Link>
+        <NavbarToggler onClick={toggle}>
+          <FaBars />
+        </NavbarToggler>
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/news">
+                News
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/program">
+                Program
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/solution">
+                Solution
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/contact-us">
+                Contact Us
+              </Link>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
     </React.Fragment>
   );
 };
