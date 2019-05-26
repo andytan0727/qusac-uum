@@ -1,19 +1,11 @@
 ---
-templateKey: 'about-page'
+templateKey: "about-page"
 path: /about
-title: About our values
+title: About AMC
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+Culpa magna exercitation est pariatur dolor ipsum cillum ea voluptate commodo ipsum. Nulla aute ut excepteur ad aute sit. Exercitation veniam nulla in esse velit nulla officia elit voluptate dolore nostrud ipsum. Sunt do culpa magna duis irure et occaecat tempor sit excepteur. Id cillum et officia laborum anim aute sunt non. Aliqua esse cupidatat ad id occaecat et nisi tempor. Aute labore exercitation qui dolor laborum eiusmod ipsum nostrud excepteur deserunt veniam.
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+Laboris pariatur amet consectetur fugiat excepteur mollit adipisicing nostrud id laborum proident sunt. Laboris occaecat ipsum esse Lorem. Ex excepteur sit voluptate ut incididunt proident ullamco.
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Ipsum adipisicing cillum occaecat exercitation sit consectetur non commodo id labore nostrud. Laborum minim ea sit est. Magna in labore fugiat deserunt.

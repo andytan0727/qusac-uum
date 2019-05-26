@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  # name: git-gateway
+  name: test-repo
   branch: master
 
 publish_mode: editorial_workflow
@@ -9,6 +10,8 @@ public_folder: /img
 collections:
   - name: "news"
     label: "News"
+    description: >
+      Create new news post related to AMC
     folder: "src/pages/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -29,8 +32,8 @@ collections:
     label: "Pages"
     files:
       - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "Index Page"
+        label: "Home Page"
+        name: "Home Page"
         fields:
           - {
               label: "Template Key",
@@ -44,7 +47,7 @@ collections:
           - { label: Subheading, name: subheading, widget: string }
 
       - file: "src/pages/about/index.md"
-        label: "About"
+        label: "About Page"
         name: "about"
         fields:
           - {
@@ -52,6 +55,32 @@ collections:
               name: "templateKey",
               widget: "hidden",
               default: "about-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "src/pages/program/index.md"
+        label: "Program Page"
+        name: "program"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "program-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "src/pages/solution/index.md"
+        label: "Solution Page"
+        name: "solution"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "solution-page",
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
