@@ -26,8 +26,10 @@ export interface IData {
 
 export interface NewsPostTemplateProps extends INewsPostFrontmatter {
   content: React.ReactNode;
-  contentComponent: Function;
-  helmet: React.ReactNode;
+
+  // the following props are not used in CMS's preview template
+  contentComponent?: Function;
+  helmet?: React.ReactNode;
 }
 
 export const NewsPostTemplate = ({

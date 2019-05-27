@@ -1,8 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { NewsPostTemplate } from "../../templates/news-post";
 
-const NewsPostPreview = ({ entry, widgetFor }) => (
+export interface NewsPostPreviewProps {
+  entry: {
+    getIn: Function;
+  };
+  widgetFor: Function;
+}
+
+const NewsPostPreview = ({ entry, widgetFor }: NewsPostPreviewProps) => (
   <NewsPostTemplate
     content={widgetFor("body")}
     description={entry.getIn(["data", "description"])}
@@ -10,12 +16,5 @@ const NewsPostPreview = ({ entry, widgetFor }) => (
     title={entry.getIn(["data", "title"])}
   />
 );
-
-NewsPostPreview.propTypes = {
-  entry: PropTypes.shape({
-    getIn: PropTypes.func,
-  }),
-  widgetFor: PropTypes.func,
-};
 
 export default NewsPostPreview;

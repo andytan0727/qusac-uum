@@ -19,7 +19,9 @@ export interface IData {
 export interface AboutPageTemplateProps {
   title: string;
   content: string;
-  contentComponent: Function;
+
+  // the following props is not used in CMS's preview
+  contentComponent?: Function;
 }
 
 export const AboutPageTemplate = ({
@@ -31,7 +33,7 @@ export const AboutPageTemplate = ({
 
   return (
     <div className="container mt-5">
-      <h2>{title}</h2>
+      <h1>{title}</h1>
       <PageContent className="about-pg-content mt-4" content={content} />
     </div>
   );
