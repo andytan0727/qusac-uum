@@ -2,18 +2,21 @@ import CMS from "netlify-cms";
 
 import AboutPagePreview from "./preview-templates/AboutPagePreview";
 import NewsPostPreview from "./preview-templates/NewsPostPreview";
-import IndexPagePreview from "./preview-templates/IndexPagePreview";
+import HomePagePreview from "./preview-templates/HomePagePreview";
+import ProgramPagePreview from "./preview-templates/ProgramPagePreview";
+import SolutionPagePreview from "./preview-templates/SolutionPagePreview";
 
-CMS.registerPreviewTemplate("index", IndexPagePreview);
+CMS.registerPreviewTemplate("home", HomePagePreview);
+CMS.registerPreviewTemplate("news", NewsPostPreview);
+CMS.registerPreviewTemplate("program", ProgramPagePreview);
+CMS.registerPreviewTemplate("solution", SolutionPagePreview);
 CMS.registerPreviewTemplate("about", AboutPagePreview);
-CMS.registerPreviewTemplate("blog", NewsPostPreview);
 CMS.registerPreviewStyle(
   `
       html,
       body {
         color: #444;
         font-size: 14px;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
 
       body {
