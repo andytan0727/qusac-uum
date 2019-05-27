@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
 
 const ContactIndex = () => {
@@ -10,8 +9,9 @@ const ContactIndex = () => {
 
   return (
     <Layout>
-      <div className="container">
-        <div className="row">
+      <div className="container mt-5">
+        <h1>Contact Us</h1>
+        <div className="row mt-5">
           <div className="col-lg-12">
             <form id="contactForm" name="sentMessage">
               <div className="row">
