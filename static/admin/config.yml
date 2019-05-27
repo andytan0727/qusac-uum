@@ -1,6 +1,5 @@
 backend:
-  # name: git-gateway
-  name: test-repo
+  name: git-gateway
   branch: master
 
 publish_mode: editorial_workflow
@@ -10,8 +9,7 @@ public_folder: /img
 collections:
   - name: "news"
     label: "News"
-    description: >
-      Create new news post related to AMC
+    description: Create new news post related to AMC
     folder: "src/pages/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
