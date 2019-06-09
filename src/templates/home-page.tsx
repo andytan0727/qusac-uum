@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Container, Row, Col, Button } from "reactstrap";
+import { Bounce } from "react-reveal";
 
 import Layout from "../components/Layout";
 import MediaQueries from "../components/MediaQueries";
@@ -26,6 +27,82 @@ const JoinUsButton = () => (
     Join Us
   </Button>
 );
+
+const HomeSecondDisplaySection = ({ image }: { image: any }) => {
+  return (
+    <section
+      className="bg-dark"
+      style={{
+        height: "75vh",
+      }}
+    >
+      <MediaQueries.Default>
+        <div className="d-flex align-items-center">
+          <Bounce>
+            <div className="container h-100 d-flex flex-column justify-content-center w-50">
+              <h1 className="text-light text-center">
+                Looking for excitement?
+              </h1>
+              <p className="container text-light">
+                Sample text Eu mollit magna elit voluptate ex tempor. Ex id est
+                amet exercitation id amet. Eu occaecat est laborum cupidatat
+                officia voluptate est exercitation laboris aute mollit.
+                reprehenderit qui occaecat proident officia.
+              </p>
+            </div>
+          </Bounce>
+
+          <div
+            style={{
+              width: "50%",
+              height: "75vh",
+              backgroundColor: "white",
+              backgroundImage: `url(${
+                !!image.childImageSharp
+                  ? image.childImageSharp.fluid.src
+                  : image
+              })`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundClip: "cover",
+              clipPath: "polygon(41% 0, 100% 0, 100% 100%, 0 100%)",
+            }}
+          />
+        </div>
+      </MediaQueries.Default>
+
+      <MediaQueries.Mobile>
+        <div className="h-100 d-flex flex-column justify-content-center">
+          <h1 className="text-light text-center mt-4">
+            Looking for excitement?
+          </h1>
+          <p className="container text-light">
+            Sample text Eu mollit magna elit voluptate ex tempor. Ex id est amet
+            exercitation id amet. Eu occaecat est laborum cupidatat officia
+            voluptate est exercitation laboris aute mollit. Excepteur ipsum
+            aliqua sit occaecat non ut proident ipsum do in ipsum. Est velit
+            minim esse labore. Do sint non cillum reprehenderit qui occaecat
+            proident officia.
+          </p>
+        </div>
+      </MediaQueries.Mobile>
+    </section>
+  );
+};
+
+const HomeRegisterWithUsSection = () => {
+  return (
+    <section
+      className="d-flex flex-column align-items-center justify-content-center bg-light"
+      style={{
+        height: "75vh",
+      }}
+    >
+      <h1>Interested?</h1>
+      <button className="btn btn-outline-primary mt-3">Register With Us</button>
+    </section>
+  );
+};
 
 export const HomePageTemplate = ({
   image,
@@ -101,9 +178,13 @@ export const HomePageTemplate = ({
       <main className="container mt-5">
         <h1>Latest News</h1>
         <section className="mt-3">
-          <NewsRoll />
+          <NewsRoll shortPosts />
         </section>
       </main>
+
+      <HomeSecondDisplaySection image={image} />
+
+      <HomeRegisterWithUsSection />
     </React.Fragment>
   );
 };
