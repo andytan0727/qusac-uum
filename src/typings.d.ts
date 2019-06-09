@@ -27,3 +27,21 @@ declare module "netlify-cms" {
     }) => void;
   }
 }
+
+declare module "react-reveal" {
+  import React, { Component } from "react";
+  export class Fade extends Component {}
+  export class Flip extends Component {}
+  export class Rotate extends Component {}
+  export class Bounce extends Component {}
+  export class Roll extends Component {}
+  export class LightSpeed extends Component {}
+  export class Zoom extends Component {}
+  export class Slide extends Component<
+    {
+      left?: boolean;
+      right?: boolean;
+    },
+    {}
+  > {}
+}
