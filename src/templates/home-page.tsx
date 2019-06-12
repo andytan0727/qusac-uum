@@ -7,17 +7,33 @@ import Layout from "../components/Layout";
 import MediaQueries from "../components/MediaQueries";
 import NewsRoll from "../components/NewsRoll";
 
-export interface IHomePageFrontMatter {
+export interface IHomePageTemplateFrontMatter {
   image: any;
-  title: string;
   heading: string;
   subheading: string;
+  thirdSectionHeading: string;
+  thirdSectionText: string;
+  thirdSectionImage: any;
+}
+
+export interface IHomePageTemplateProps extends IHomePageTemplateFrontMatter {
+  showNews?: boolean;
+}
+
+export interface IHomePageSecondSectionProps {
+  showNews: boolean | undefined;
+}
+
+export interface IHomePageThirdSectionProps {
+  heading: string;
+  text: string;
+  image: any;
 }
 
 export interface IData {
   data: {
     markdownRemark: {
-      frontmatter: IHomePageFrontMatter;
+      frontmatter: IHomePageTemplateFrontMatter;
     };
   };
 }
@@ -28,7 +44,38 @@ const JoinUsButton = () => (
   </Button>
 );
 
-const HomeSecondDisplaySection = ({ image }: { image: any }) => {
+const HomeSecondDisplaySection = ({
+  showNews,
+}: IHomePageSecondSectionProps) => {
+  return showNews ? (
+    <main className="container mt-5">
+      <h1>Latest News</h1>
+      <section className="mt-3">
+        <NewsRoll shortPosts />
+      </section>
+    </main>
+  ) : (
+    <div
+      style={{
+        width: "100%",
+        height: "70vh",
+        backgroundColor: "#222222",
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <p className="display-3">News Placeholder</p>
+    </div>
+  );
+};
+
+const HomeThirdDisplaySection = ({
+  heading,
+  text,
+  image,
+}: IHomePageThirdSectionProps) => {
   return (
     <section
       className="bg-dark"
@@ -40,15 +87,8 @@ const HomeSecondDisplaySection = ({ image }: { image: any }) => {
         <div className="d-flex align-items-center">
           <Bounce>
             <div className="container h-100 d-flex flex-column justify-content-center w-50">
-              <h1 className="text-light text-center">
-                Looking for excitement?
-              </h1>
-              <p className="container text-light">
-                Sample text Eu mollit magna elit voluptate ex tempor. Ex id est
-                amet exercitation id amet. Eu occaecat est laborum cupidatat
-                officia voluptate est exercitation laboris aute mollit.
-                reprehenderit qui occaecat proident officia.
-              </p>
+              <h1 className="text-light text-center">{heading}</h1>
+              <p className="container text-light">{text}</p>
             </div>
           </Bounce>
 
@@ -73,17 +113,8 @@ const HomeSecondDisplaySection = ({ image }: { image: any }) => {
 
       <MediaQueries.Mobile>
         <div className="h-100 d-flex flex-column justify-content-center">
-          <h1 className="text-light text-center mt-4">
-            Looking for excitement?
-          </h1>
-          <p className="container text-light">
-            Sample text Eu mollit magna elit voluptate ex tempor. Ex id est amet
-            exercitation id amet. Eu occaecat est laborum cupidatat officia
-            voluptate est exercitation laboris aute mollit. Excepteur ipsum
-            aliqua sit occaecat non ut proident ipsum do in ipsum. Est velit
-            minim esse labore. Do sint non cillum reprehenderit qui occaecat
-            proident officia.
-          </p>
+          <h1 className="text-light text-center mt-4">{heading}</h1>
+          <p className="container text-light">{text}</p>
         </div>
       </MediaQueries.Mobile>
     </section>
@@ -106,10 +137,13 @@ const HomeRegisterWithUsSection = () => {
 
 export const HomePageTemplate = ({
   image,
-  title,
   heading,
   subheading,
-}: IHomePageFrontMatter) => {
+  thirdSectionHeading,
+  thirdSectionText,
+  thirdSectionImage,
+  showNews,
+}: IHomePageTemplateProps) => {
   return (
     <React.Fragment>
       <header>
@@ -174,38 +208,46 @@ export const HomePageTemplate = ({
           </div>
         </Container>
       </header>
-
-      <main className="container mt-5">
-        <h1>Latest News</h1>
-        <section className="mt-3">
-          <NewsRoll shortPosts />
-        </section>
-      </main>
-
-      <HomeSecondDisplaySection image={image} />
-
+      <HomeSecondDisplaySection showNews={showNews} />
+      <HomeThirdDisplaySection
+        heading={thirdSectionHeading}
+        text={thirdSectionText}
+        image={thirdSectionImage}
+      />
       <HomeRegisterWithUsSection />
     </React.Fragment>
   );
 };
 
 const HomePage = ({ data }: IData) => {
-  const { frontmatter } = data.markdownRemark;
+  const {
+    frontmatter: {
+      image,
+      heading,
+      subheading,
+      thirdSectionHeading,
+      thirdSectionText,
+      thirdSectionImage,
+    },
+  } = data.markdownRemark;
 
   return (
     <Layout>
       <HomePageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
+        image={image}
+        heading={heading}
+        subheading={subheading}
+        thirdSectionHeading={thirdSectionHeading}
+        thirdSectionText={thirdSectionText}
+        thirdSectionImage={thirdSectionImage}
+        showNews
       />
     </Layout>
   );
 };
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
+  query HomePageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "home-page" } }) {
       frontmatter {
         title
@@ -218,6 +260,15 @@ export const pageQuery = graphql`
         }
         heading
         subheading
+        thirdSectionHeading
+        thirdSectionText
+        thirdSectionImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

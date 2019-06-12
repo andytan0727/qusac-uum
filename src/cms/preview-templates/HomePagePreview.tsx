@@ -12,9 +12,11 @@ const HomePagePreview = ({ entry }: HomePagePreviewProps) => {
   return (
     <HomePageTemplate
       image={entry.getIn(["data", "image"])}
-      title={entry.getIn(["data", "title"])}
       heading={entry.getIn(["data", "heading"])}
       subheading={entry.getIn(["data", "subheading"])}
+      thirdSectionHeading={entry.getIn(["data", "thirdSectionHeading"])}
+      thirdSectionText={entry.getIn(["data", "thirdSectionText"])}
+      thirdSectionImage={entry.getIn(["data", "thirdSectionImage"])}
     />
   );
 };

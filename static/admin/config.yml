@@ -31,7 +31,7 @@ collections:
     files:
       - file: "src/pages/index.md"
         label: "Home Page"
-        name: "Home Page"
+        name: "home"
         fields:
           - {
               label: "Template Key",
@@ -39,10 +39,24 @@ collections:
               widget: "hidden",
               default: "home-page",
             }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Subheading, name: subheading, widget: string }
+          - { label: Hero Image, name: image, widget: image }
+          - { label: Hero Heading, name: heading, widget: string }
+          - { label: Hero Subheading, name: subheading, widget: string }
+          - {
+              label: Third-Section Heading,
+              name: thirdSectionHeading,
+              widget: string,
+            }
+          - {
+              label: Third-Section Text,
+              name: thirdSectionText,
+              widget: string,
+            }
+          - {
+              label: Third-Section Image,
+              name: thirdSectionImage,
+              widget: image,
+            }
 
       - file: "src/pages/about/index.md"
         label: "About Page"
