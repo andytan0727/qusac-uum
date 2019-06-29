@@ -4,10 +4,10 @@ import Footer from "../Footer";
 import NavBar from "../NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../global.scss";
-import useSiteMetadata from "../StaticQueries/SiteMetadata";
+import { useSiteMetadataQuery } from "../StaticQueries/SiteMetadataQuery";
 
 const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
-  const { title, description } = useSiteMetadata();
+  const { title, description } = useSiteMetadataQuery();
 
   return (
     <div>

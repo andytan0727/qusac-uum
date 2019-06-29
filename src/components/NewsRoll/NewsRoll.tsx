@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, navigate } from "gatsby";
 import { FaArrowRight } from "react-icons/fa";
-import { Card, CardText, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { useNewsRollQuery } from "../StaticQueries/NewsRollQuery";
 import { Fade } from "react-reveal";
 
@@ -22,25 +21,27 @@ const NewsRoll = (props: NewsRollProps) => {
     <React.Fragment>
       {newsPosts.map(({ node: post }) => (
         <Fade key={post.id}>
-          <Card>
-            <CardBody>
-              <CardTitle>
+          <div className="card mt-3">
+            <div className="card-body">
+              <div className="card-title">
                 <Link
                   className="h3 font-weight-bold"
                   to={`${post.fields.slug}`}
                 >
                   {post.frontmatter.title}
                 </Link>
-              </CardTitle>
-              <CardSubtitle>Created at {post.frontmatter.date}</CardSubtitle>
-              <CardText>{post.excerpt}</CardText>
-              <Link className="btn btn-outline-dark" to={post.fields.slug}>
+              </div>
+              <div className="card-subtitle">
+                Created at {post.frontmatter.date}
+              </div>
+              <div className="card-text">{post.excerpt}</div>
+              <Link className="btn btn-outline-dark mt-3" to={post.fields.slug}>
                 <span className="d-inline-flex align-items-center">
                   Read more <FaArrowRight className="ml-1" />
                 </span>
               </Link>
-            </CardBody>
-          </Card>
+            </div>
+          </div>
         </Fade>
       ))}
       {shortPosts && (

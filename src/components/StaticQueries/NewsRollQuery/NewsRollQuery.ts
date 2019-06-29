@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export interface INewsRollQueryData {
+export interface IAllMarkdownRemark {
   edges: Array<{
     node: {
       id: string;
@@ -16,10 +16,14 @@ export interface INewsRollQueryData {
   }>;
 }
 
-const useNewsRollQuery = (): INewsRollQueryData => {
-  const { allMarkdownRemark } = useStaticQuery(
+export interface INewsRollQuery {
+  allMarkdownRemark: IAllMarkdownRemark;
+}
+
+const useNewsRollQuery = (): IAllMarkdownRemark => {
+  const { allMarkdownRemark } = useStaticQuery<INewsRollQuery>(
     graphql`
-      query BlogRollQuery {
+      query NewsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "news-post" } } }

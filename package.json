@@ -11,7 +11,6 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
     "@types/react-responsive": "^3.0.3",
-    "@types/reactstrap": "^8.0.1",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "gatsby": "^2.1.34",
@@ -41,7 +40,6 @@
     "react-icons": "^3.7.0",
     "react-responsive": "^6.1.2",
     "react-reveal": "^1.2.2",
-    "reactstrap": "^8.0.0",
     "uuid": "^3.2.1"
   },
   "keywords": [
@@ -54,11 +52,12 @@
     "start": "run-p start:**",
     "build:app": "yarn clean && gatsby build",
     "build": "run-p build:**",
-    "develop": "yarn clean && gatsby develop",
+    "develop": "yarn clean && env-cmd -f .env.development  gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\""
   },
   "devDependencies": {
+    "env-cmd": "^9.0.3",
     "http-proxy-middleware": "^0.19.1",
     "netlify-lambda": "^1.4.3",
     "npm-run-all": "^4.1.5",

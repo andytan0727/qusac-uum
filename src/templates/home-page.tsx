@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Container, Row, Col, Button } from "reactstrap";
 import { Bounce } from "react-reveal";
 
 import Layout from "../components/Layout";
@@ -39,9 +38,7 @@ export interface IData {
 }
 
 const JoinUsButton = () => (
-  <Button className="mt-4" color="primary" outline>
-    Join Us
-  </Button>
+  <button className="btn btn-outline-primary mt-4">Join Us</button>
 );
 
 const HomeSecondDisplaySection = ({
@@ -147,8 +144,8 @@ export const HomePageTemplate = ({
   return (
     <React.Fragment>
       <header>
-        <Container
-          className="d-flex flex-column justify-content-center align-items-center"
+        <div
+          className="container-fluid d-flex flex-column justify-content-center align-items-center"
           style={{
             height: "80vh",
             backgroundImage: `url(${
@@ -159,7 +156,6 @@ export const HomePageTemplate = ({
             backgroundAttachment: "fixed",
             backgroundClip: "cover",
           }}
-          fluid
         >
           <div
             className="container d-flex flex-column align-items-center shadow-lg"
@@ -169,36 +165,38 @@ export const HomePageTemplate = ({
             }}
           >
             <MediaQueries.Desktop>
-              <Row>
-                <Col
+              <div className="row">
+                <div
+                  className="col"
                   style={{
                     borderRight: "2px solid black",
                   }}
                 >
                   <h1 className="display-2 p-2">{heading}</h1>
-                </Col>
-                <Col className="d-flex flex-column justify-content-center align-items-center">
+                </div>
+                <div className="col d-flex flex-column justify-content-center align-items-center">
                   <h5 className="display-4 text-center">{subheading}</h5>
                   <JoinUsButton />
-                </Col>
-              </Row>
+                </div>
+              </div>
             </MediaQueries.Desktop>
             <MediaQueries.Tablet>
-              <Row>
-                <Col
+              <div className="row">
+                <div
+                  className="col"
                   style={{
                     borderRight: "2px solid black",
                   }}
                 >
                   <h1 className="p-2 font-weight-light">{heading}</h1>
-                </Col>
-                <Col className="d-flex flex-column justify-content-center align-items-center">
+                </div>
+                <div className="col d-flex flex-column justify-content-center align-items-center">
                   <h5 className="text-center font-weight-light">
                     {subheading}
                   </h5>
                   <JoinUsButton />
-                </Col>
-              </Row>
+                </div>
+              </div>
             </MediaQueries.Tablet>
             <MediaQueries.Mobile>
               <h1 className="text-center font-weight-light">{heading}</h1>
@@ -206,7 +204,7 @@ export const HomePageTemplate = ({
               <JoinUsButton />
             </MediaQueries.Mobile>
           </div>
-        </Container>
+        </div>
       </header>
       <HomeSecondDisplaySection showNews={showNews} />
       <HomeThirdDisplaySection

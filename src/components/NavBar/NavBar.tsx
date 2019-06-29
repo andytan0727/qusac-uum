@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
 import * as styles from "./styles.module.scss";
 
@@ -33,13 +32,12 @@ const NavBar = () => {
 
   return (
     <React.Fragment>
-      <Navbar
-        className={classNames("shadow", {
+      <div
+        className={classNames("shadow navbar navbar-expand-lg", {
           [styles.navbarBeforeScroll]: !scrolling,
           [styles.navbarDuringScroll]: scrolling,
+          sticky: scrolling ? "top" : "",
         })}
-        expand="lg"
-        sticky={scrolling ? "top" : ""}
       >
         <Link className="navbar-brand" to="/">
           <span
@@ -50,44 +48,48 @@ const NavBar = () => {
             Qusac
           </span>
         </Link>
-        <NavbarToggler onClick={toggle}>
+        <button className="navbar-toggler" onClick={toggle}>
           <FaBars />
-        </NavbarToggler>
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
+        </button>
+        <div
+          className={classNames("collapse navbar-collapse", {
+            show: isOpen,
+          })}
+        >
+          <ul className="ml-auto navbar-nav">
+            <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
               </Link>
-            </NavItem>
-            <NavItem>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/news">
                 News
               </Link>
-            </NavItem>
-            <NavItem>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/program">
                 Program
               </Link>
-            </NavItem>
-            <NavItem>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/solution">
                 Solution
               </Link>
-            </NavItem>
-            <NavItem>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About
               </Link>
-            </NavItem>
-            <NavItem>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/contact-us">
                 Contact Us
               </Link>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+            </li>
+          </ul>
+        </div>
+      </div>
     </React.Fragment>
   );
 };
