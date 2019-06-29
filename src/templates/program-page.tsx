@@ -16,7 +16,7 @@ export interface IData {
   };
 }
 
-export interface ProgramPageTemplateProps {
+export interface IProgramPageTemplateProps {
   title: string;
   content: string;
 
@@ -28,7 +28,7 @@ export const ProgramPageTemplate = ({
   title,
   content,
   contentComponent,
-}: ProgramPageTemplateProps) => {
+}: IProgramPageTemplateProps) => {
   const PageContent = contentComponent || Content;
 
   return (

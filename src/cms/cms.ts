@@ -44,7 +44,7 @@ CMS.registerEditorComponent({
   pattern: /^{{\s?youtube (\S+)\s?}}/,
   fromBlock: function(match) {
     return {
-      id: match[1],
+      id: (match as string[])[1],
     };
   },
   toBlock: function(obj) {

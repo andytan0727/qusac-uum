@@ -1,14 +1,14 @@
 import React from "react";
 import { NewsPostTemplate } from "../../templates/news-post";
 
-export interface NewsPostPreviewProps {
+export interface INewsPostPreviewProps {
   entry: {
     getIn: Function;
   };
   widgetFor: Function;
 }
 
-const NewsPostPreview = ({ entry, widgetFor }: NewsPostPreviewProps) => (
+const NewsPostPreview = ({ entry, widgetFor }: INewsPostPreviewProps) => (
   <NewsPostTemplate
     content={widgetFor("body")}
     description={entry.getIn(["data", "description"])}

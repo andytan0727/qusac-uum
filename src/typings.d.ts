@@ -5,20 +5,20 @@ declare module "*.scss" {
 
 declare module "netlify-cms" {
   export default class CMS {
-    static registerPreviewTemplate: (
+    public static registerPreviewTemplate: (
       label: string,
       previewComponent: React.ReactNode
     ) => void;
 
-    static registerPreviewStyle: (style: string, config: object) => void;
+    public static registerPreviewStyle: (style: string, config: object) => void;
 
-    static registerEditorComponent: (config: {
+    public static registerEditorComponent: (config: {
       id: string;
       label: string;
       fields: object;
       pattern: RegExp;
       fromBlock: (
-        match: any
+        match: unknown
       ) => {
         id: string;
       };

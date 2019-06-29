@@ -1,14 +1,14 @@
 import React from "react";
 import { ProgramPageTemplate } from "../../templates/program-page";
 
-export interface ProgramPagePreviewProps {
+export interface IProgramPagePreviewProps {
   entry: {
     getIn: Function;
   };
   widgetFor: Function;
 }
 
-const ProgramPagePreview = ({ entry, widgetFor }: ProgramPagePreviewProps) => (
+const ProgramPagePreview = ({ entry, widgetFor }: IProgramPagePreviewProps) => (
   <ProgramPageTemplate
     title={entry.getIn(["data", "title"])}
     content={widgetFor("body")}

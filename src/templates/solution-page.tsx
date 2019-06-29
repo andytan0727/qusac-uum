@@ -16,11 +16,11 @@ export interface IData {
   };
 }
 
-export interface SolutionPageTemplateProps {
+export interface ISolutionPageTemplateProps {
   title: string;
   content: string;
 
-  // the following props is not used in CMS's preview
+  // the following props is not used in CMS preview
   contentComponent?: Function;
 }
 
@@ -28,7 +28,7 @@ export const SolutionPageTemplate = ({
   title,
   content,
   contentComponent,
-}: SolutionPageTemplateProps) => {
+}: ISolutionPageTemplateProps) => {
   const PageContent = contentComponent || Content;
 
   return (

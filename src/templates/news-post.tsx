@@ -24,10 +24,10 @@ export interface IData {
   };
 }
 
-export interface NewsPostTemplateProps extends INewsPostFrontmatter {
+export interface INewsPostTemplateProps extends INewsPostFrontmatter {
   content: React.ReactNode;
 
-  // the following props are not used in CMS's preview template
+  // the following props are not used in CMS preview template
   contentComponent?: Function;
   helmet?: React.ReactNode;
 }
@@ -39,7 +39,7 @@ export const NewsPostTemplate = ({
   tags,
   title,
   helmet,
-}: NewsPostTemplateProps) => {
+}: INewsPostTemplateProps) => {
   const PostContent = contentComponent || Content;
 
   return (

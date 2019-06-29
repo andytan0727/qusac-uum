@@ -28,11 +28,11 @@ export interface IData {
   };
 }
 
-export interface TagsRouteProps extends IData {
+export interface ITagsRouteProps extends IData {
   pageContext: { tag: string[] };
 }
 
-const TagRoute = (props: TagsRouteProps) => {
+const TagRoute = (props: ITagsRouteProps) => {
   const posts = props.data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug} className="mb-3">

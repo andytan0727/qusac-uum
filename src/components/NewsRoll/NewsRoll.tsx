@@ -4,11 +4,11 @@ import { FaArrowRight } from "react-icons/fa";
 import { useNewsRollQuery } from "../StaticQueries/NewsRollQuery";
 import { Fade } from "react-reveal";
 
-export interface NewsRollProps {
+export interface INewsRollProps {
   shortPosts?: boolean;
 }
 
-const NewsRoll = (props: NewsRollProps) => {
+const NewsRoll = (props: INewsRollProps) => {
   const { shortPosts } = props;
   const { edges } = useNewsRollQuery();
   const newsPosts = !shortPosts ? edges : edges.slice(0, 3);

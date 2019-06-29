@@ -1,14 +1,14 @@
 import React from "react";
 import { HomePageTemplate } from "../../templates/home-page";
 
-export interface HomePagePreviewProps {
+export interface IHomePagePreviewProps {
   entry: {
     getIn: Function;
   };
   getAsset: Function;
 }
 
-const HomePagePreview = ({ entry }: HomePagePreviewProps) => {
+const HomePagePreview = ({ entry }: IHomePagePreviewProps) => {
   return (
     <HomePageTemplate
       image={entry.getIn(["data", "image"])}

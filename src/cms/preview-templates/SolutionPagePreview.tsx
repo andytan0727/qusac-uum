@@ -1,7 +1,7 @@
 import React from "react";
 import { SolutionPageTemplate } from "../../templates/solution-page";
 
-export interface SolutionPagePreviewProps {
+export interface ISolutionPagePreviewProps {
   entry: {
     getIn: Function;
   };
@@ -11,7 +11,7 @@ export interface SolutionPagePreviewProps {
 const SolutionPagePreview = ({
   entry,
   widgetFor,
-}: SolutionPagePreviewProps) => (
+}: ISolutionPagePreviewProps) => (
   <SolutionPageTemplate
     title={entry.getIn(["data", "title"])}
     content={widgetFor("body")}

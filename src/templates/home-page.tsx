@@ -6,13 +6,21 @@ import Layout from "../components/Layout";
 import MediaQueries from "../components/MediaQueries";
 import NewsRoll from "../components/NewsRoll";
 
+export interface IImageSharp {
+  childImageSharp: {
+    fluid: {
+      src: string;
+    };
+  };
+}
+
 export interface IHomePageTemplateFrontMatter {
-  image: any;
+  image: IImageSharp;
   heading: string;
   subheading: string;
   thirdSectionHeading: string;
   thirdSectionText: string;
-  thirdSectionImage: any;
+  thirdSectionImage: IImageSharp;
 }
 
 export interface IHomePageTemplateProps extends IHomePageTemplateFrontMatter {
@@ -26,7 +34,7 @@ export interface IHomePageSecondSectionProps {
 export interface IHomePageThirdSectionProps {
   heading: string;
   text: string;
-  image: any;
+  image: IImageSharp;
 }
 
 export interface IData {
@@ -95,9 +103,7 @@ const HomeThirdDisplaySection = ({
               height: "75vh",
               backgroundColor: "white",
               backgroundImage: `url(${
-                !!image.childImageSharp
-                  ? image.childImageSharp.fluid.src
-                  : image
+                image.childImageSharp ? image.childImageSharp.fluid.src : image
               })`,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -149,7 +155,7 @@ export const HomePageTemplate = ({
           style={{
             height: "80vh",
             backgroundImage: `url(${
-              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+              image.childImageSharp ? image.childImageSharp.fluid.src : image
             })`,
             backgroundSize: "cover",
             backgroundPosition: "center",

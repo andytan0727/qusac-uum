@@ -1,49 +1,30 @@
 import React from "react";
 import Responsive from "react-responsive";
 
-export const Desktop = ({
-  children,
-  ...rest
-}: {
+interface IMediaQueryProps {
   children: React.ReactNode;
-  rest?: any;
-}) => (
+  rest?: unknown;
+}
+
+export const Desktop = ({ children, ...rest }: IMediaQueryProps) => (
   <Responsive {...rest} minWidth={992}>
     {children}
   </Responsive>
 );
 
-export const Tablet = ({
-  children,
-  ...rest
-}: {
-  children: React.ReactNode;
-  rest?: any;
-}) => (
+export const Tablet = ({ children, ...rest }: IMediaQueryProps) => (
   <Responsive {...rest} minWidth={768} maxWidth={991}>
     {children}
   </Responsive>
 );
 
-export const Mobile = ({
-  children,
-  ...rest
-}: {
-  children: React.ReactNode;
-  rest?: any;
-}) => (
+export const Mobile = ({ children, ...rest }: IMediaQueryProps) => (
   <Responsive {...rest} maxWidth={767}>
     {children}
   </Responsive>
 );
 
-export const Default = ({
-  children,
-  ...rest
-}: {
-  children: React.ReactNode;
-  rest?: any;
-}) => (
+export const Default = ({ children, ...rest }: IMediaQueryProps) => (
   <Responsive {...rest} minWidth={768}>
     {children}
   </Responsive>
