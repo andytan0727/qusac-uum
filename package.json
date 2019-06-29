@@ -40,6 +40,7 @@
     "react-icons": "^3.7.0",
     "react-responsive": "^6.1.2",
     "react-reveal": "^1.2.2",
+    "typescript": "^3.5.2",
     "uuid": "^3.2.1"
   },
   "keywords": [
@@ -54,10 +55,18 @@
     "build": "run-p build:**",
     "develop": "yarn clean && env-cmd -f .env.development  gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\""
+    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\"",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "env-cmd": "^9.0.3",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "http-proxy-middleware": "^0.19.1",
     "netlify-lambda": "^1.4.3",
     "npm-run-all": "^4.1.5",
