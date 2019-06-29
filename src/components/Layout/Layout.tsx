@@ -5,6 +5,7 @@ import NavBar from "../NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../global.scss";
 import { useSiteMetadataQuery } from "../StaticQueries/SiteMetadataQuery";
+import { Location } from "@reach/router";
 
 const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
   const { title, description } = useSiteMetadataQuery();
@@ -46,7 +47,7 @@ const TemplateWrapper = ({ children }: { children: React.ReactNode }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <NavBar />
+      <Location>{({ location }) => <NavBar location={location} />}</Location>
       <div>{children}</div>
       <Footer />
     </div>

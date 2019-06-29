@@ -5,9 +5,17 @@ import { Link } from "gatsby";
 
 import * as styles from "./styles.module.scss";
 
-const NavBar = () => {
+export interface INavBarProps {
+  location: {
+    pathname: string;
+  };
+}
+
+const NavBar = (props: INavBarProps) => {
+  const { location } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const [isHome, setIsHome] = useState();
 
   const toggle = () => {
     setIsOpen(prevState => !prevState);
@@ -15,12 +23,16 @@ const NavBar = () => {
 
   const handleScroll = () => {
     const offsetTop = window.pageYOffset;
-    if (offsetTop > 300) {
+    if (offsetTop > 0) {
       setScrolling(true);
     } else {
       setScrolling(false);
     }
   };
+
+  useEffect(() => {
+    setIsHome(location.pathname === "/");
+  }, [location]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -33,10 +45,12 @@ const NavBar = () => {
   return (
     <React.Fragment>
       <div
-        className={classNames("shadow navbar navbar-expand-lg", {
+        className={classNames("navbar navbar-expand-lg", {
           [styles.navbarBeforeScroll]: !scrolling,
           [styles.navbarDuringScroll]: scrolling,
-          sticky: scrolling ? "top" : "",
+          "shadow ": !isHome || scrolling,
+          "fixed-top": isHome,
+          "sticky-top": !isHome && scrolling,
         })}
       >
         <Link className="navbar-brand" to="/">

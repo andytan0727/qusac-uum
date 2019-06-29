@@ -16,14 +16,7 @@
 .navbarBeforeScroll {
   @extend %customNav;
 
-  background: rgb(149, 153, 167);
-  background: linear-gradient(
-    86deg,
-    rgba(149, 153, 167, 1) 0%,
-    rgba(210, 211, 219, 1) 57%,
-    rgba(215, 217, 232, 1) 82%,
-    rgba(215, 217, 232, 1) 100%
-  );
+  background: transparent;
 
   a {
     color: lighten(black, 35%);
