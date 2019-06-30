@@ -147,13 +147,22 @@ export const HomePageTemplate = ({
   thirdSectionImage,
   showNews,
 }: IHomePageTemplateProps) => {
+  const overlayStyles: React.CSSProperties = {
+    width: "100%",
+    height: "inherit",
+    backgroundColor: "#f6648c",
+    opacity: 0.6,
+    position: "absolute",
+    zIndex: 0,
+  };
+
   return (
     <React.Fragment>
       <header>
         <div
           className="container-fluid d-flex flex-column justify-content-center align-items-center"
           style={{
-            height: "80vh",
+            height: "90vh",
             backgroundImage: `url(${
               image.childImageSharp ? image.childImageSharp.fluid.src : image
             })`,
@@ -163,11 +172,13 @@ export const HomePageTemplate = ({
             backgroundClip: "cover",
           }}
         >
+          <div style={overlayStyles}></div>
           <div
             className="container d-flex flex-column align-items-center shadow-lg"
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.85)",
               padding: "2rem 3rem",
+              zIndex: 1,
             }}
           >
             <MediaQueries.Desktop>
@@ -178,10 +189,10 @@ export const HomePageTemplate = ({
                     borderRight: "2px solid black",
                   }}
                 >
-                  <h1 className="display-2 p-2">{heading}</h1>
+                  <p className="display-2 p-2">{heading}</p>
                 </div>
                 <div className="col d-flex flex-column justify-content-center align-items-center">
-                  <h5 className="display-4 text-center">{subheading}</h5>
+                  <p className="display-4 text-center">{subheading}</p>
                   <JoinUsButton />
                 </div>
               </div>
@@ -194,19 +205,17 @@ export const HomePageTemplate = ({
                     borderRight: "2px solid black",
                   }}
                 >
-                  <h1 className="p-2 font-weight-light">{heading}</h1>
+                  <p className="p-2 font-weight-light">{heading}</p>
                 </div>
                 <div className="col d-flex flex-column justify-content-center align-items-center">
-                  <h5 className="text-center font-weight-light">
-                    {subheading}
-                  </h5>
+                  <p className="text-center font-weight-light">{subheading}</p>
                   <JoinUsButton />
                 </div>
               </div>
             </MediaQueries.Tablet>
             <MediaQueries.Mobile>
-              <h1 className="text-center font-weight-light">{heading}</h1>
-              <h5 className="font-weight-light">{subheading}</h5>
+              <p className="text-center font-weight-light">{heading}</p>
+              <p className="font-weight-light">{subheading}</p>
               <JoinUsButton />
             </MediaQueries.Mobile>
           </div>
