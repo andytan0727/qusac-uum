@@ -13,7 +13,7 @@
   }
 }
 
-.navbarBeforeScroll {
+.transparentNav {
   @extend %customNav;
 
   background: transparent;
@@ -23,7 +23,7 @@
   }
 }
 
-.navbarDuringScroll {
+.whiteNav {
   @extend %customNav;
 
   background-color: rgba(white, 0.9);

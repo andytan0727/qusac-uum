@@ -46,9 +46,9 @@ const NavBar = (props: INavBarProps) => {
     <React.Fragment>
       <div
         className={classNames("navbar navbar-expand-lg", {
-          [styles.navbarBeforeScroll]: !scrolling,
-          [styles.navbarDuringScroll]: scrolling,
-          "shadow ": !isHome || scrolling,
+          [styles.transparentNav]: !scrolling,
+          [styles.whiteNav]: scrolling || isOpen,
+          "shadow ": !isHome || isOpen || scrolling,
           "fixed-top": isHome,
           "sticky-top": !isHome && scrolling,
         })}
