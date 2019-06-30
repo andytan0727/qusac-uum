@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import Layout from "../../components/Layout";
+import Content, { HTMLContent } from "../../components/Content";
 
-export interface IProgramPageMarkdownRemark {
+export interface ISolutionPageMarkdownRemark {
   html: string;
   frontmatter: {
     title: string;
@@ -12,39 +12,39 @@ export interface IProgramPageMarkdownRemark {
 
 export interface IData {
   data: {
-    markdownRemark: IProgramPageMarkdownRemark;
+    markdownRemark: ISolutionPageMarkdownRemark;
   };
 }
 
-export interface IProgramPageTemplateProps {
+export interface ISolutionPageTemplateProps {
   title: string;
   content: string;
 
-  // the following props is not used in CMS's preview
+  // the following props is not used in CMS preview
   contentComponent?: Function;
 }
 
-export const ProgramPageTemplate = ({
+export const SolutionPageTemplate = ({
   title,
   content,
   contentComponent,
-}: IProgramPageTemplateProps) => {
+}: ISolutionPageTemplateProps) => {
   const PageContent = contentComponent || Content;
 
   return (
     <div className="container mt-5">
       <h1>{title}</h1>
-      <PageContent className="program-pg-content mt-4" content={content} />
+      <PageContent className="solution-pg-content mt-4" content={content} />
     </div>
   );
 };
 
-const ProgramPage = ({ data }: IData) => {
+const SolutionPage = ({ data }: IData) => {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <ProgramPageTemplate
+      <SolutionPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
@@ -53,8 +53,8 @@ const ProgramPage = ({ data }: IData) => {
   );
 };
 
-export const ProgramPageQuery = graphql`
-  query ProgramPage($id: String!) {
+export const SolutionPageQuery = graphql`
+  query SolutionPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
@@ -64,4 +64,4 @@ export const ProgramPageQuery = graphql`
   }
 `;
 
-export default ProgramPage;
+export default SolutionPage;
