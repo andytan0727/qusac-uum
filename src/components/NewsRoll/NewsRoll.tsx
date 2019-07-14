@@ -24,17 +24,14 @@ const NewsRoll = (props: INewsRollProps) => {
           <div className="card mt-3">
             <div className="card-body">
               <div className="card-title">
-                <Link
-                  className="h3 font-weight-bold"
-                  to={`${post.fields.slug}`}
-                >
+                <Link className="h3" to={`${post.fields.slug}`}>
                   {post.frontmatter.title}
                 </Link>
               </div>
-              <div className="card-subtitle">
+              <div className="card-subtitle text-muted">
                 Created at {post.frontmatter.date}
               </div>
-              <div className="card-text">{post.excerpt}</div>
+              <p className="card-text">{post.excerpt}</p>
               <Link className="btn btn-outline-dark mt-3" to={post.fields.slug}>
                 <span className="d-inline-flex align-items-center">
                   Read more <FaArrowRight className="ml-1" />

@@ -1,0 +1,30 @@
+.homePageHeader {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 81%, 0 100%);
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to right top,
+      #ff757b,
+      #fe727e,
+      #fc6e81,
+      #fb6b84,
+      #f96887,
+      #f6658d,
+      #f36193,
+      #ef5f99,
+      #e85da3,
+      #e05dad,
+      #d55db7,
+      #c95fc0
+    );
+    opacity: 0.5;
+    position: absolute;
+    z-index: 0;
+  }
+}

@@ -2,7 +2,6 @@ import React from "react";
 import Helmet from "react-helmet";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../global.scss";
 import { useSiteMetadataQuery } from "../StaticQueries/SiteMetadataQuery";
 import { Location } from "@reach/router";
