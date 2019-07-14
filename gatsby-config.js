@@ -11,6 +11,23 @@ module.exports = {
       includePaths: [`${__dirname}/src`],
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Raleway`,
+            subsets: [`latin`],
+            variants: ["400", "600", "700"],
+          },
+          {
+            family: `Open Sans`,
+            subsets: [`latin`],
+            variants: ["300", "400", "700"],
+          },
+        ],
+      },
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
