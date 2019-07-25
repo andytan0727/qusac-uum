@@ -3,6 +3,8 @@
 A repo consists source files for <http://qusac-uum.netlify.com>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f957e61e-fd44-492f-b771-86f53963536e/deploy-status)](https://app.netlify.com/sites/qusac-uum/deploys)
+[![Maintainability](https://api.codeclimate.com/v1/badges/00429644b0b1d73b5472/maintainability)](https://codeclimate.com/github/andytan0727/qusac-uum/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/00429644b0b1d73b5472/test_coverage)](https://codeclimate.com/github/andytan0727/qusac-uum/test_coverage)
 
 **Note:** This app uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
 
