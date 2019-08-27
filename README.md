@@ -1,5 +1,7 @@
 # Qusac UUM Static Website
 
+## Note: This repo is archived and no longer maintained due to changed development plan by Qusac.
+
 A repo consists source files for <http://qusac-uum.netlify.com>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f957e61e-fd44-492f-b771-86f53963536e/deploy-status)](https://app.netlify.com/sites/qusac-uum/deploys)
